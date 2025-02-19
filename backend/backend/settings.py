@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'api',
+    'script_generator',
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://ai-powered-video-script-generator.vercel.app/' #my react app url
+    'https://ai-powered-video-script-generator.vercel.app', #my react app url
+    'http://localhost:5174'
 ]
 
 MIDDLEWARE = [
