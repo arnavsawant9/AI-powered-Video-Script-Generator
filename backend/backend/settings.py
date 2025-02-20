@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(os.path.join(BASE_DIR, '.env')) # we would load the .env with the original app
+
+GROK_API_KEY = os.environ.get('GROK_API_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -41,6 +45,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
     'script_generator',
+    'corsheaders',
+    'script_generator'
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -48,7 +54,11 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5174'
 ]
 
+CORS_ALLOWED_ORIGINS = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
