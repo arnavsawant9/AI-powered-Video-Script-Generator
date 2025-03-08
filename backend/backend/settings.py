@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,17 +45,20 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'api',
-    'script_generator',
-    'corsheaders',
     'script_generator'
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'https://ai-powered-video-script-generator.vercel.app', #my react app url
-    'http://localhost:5174'
+# CORS_ALLOWED_ORIGINS = [
+#     'https://ai-powered-video-script-generator.vercel.app', #my react app url
+#     'http://localhost:5174'
+# ]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",  # Allow all Vercel subdomains
+    r"^http://localhost:[0-9]+$",  # Allow localhost with any port
 ]
 
-CORS_ALLOWED_ORIGINS = True
+#CORS_ALLOWED_ORIGINS = True
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -140,3 +144,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+#GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
+#GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-pro-experimental:generateContent'
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
