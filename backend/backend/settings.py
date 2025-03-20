@@ -149,3 +149,4 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 #GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
 #GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-pro-experimental:generateContent'
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+TESSERACT_CMD = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
