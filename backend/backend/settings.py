@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-j(t+ji9-ae9^_s!mpw8^2_848^-wk&ixgedv2w*v$dsb2)ihb%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ai-powered-video-script-generator.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
