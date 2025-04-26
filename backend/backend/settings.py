@@ -104,6 +104,10 @@ DATABASES = {
 }
 
 
+
+# adding poppler to my system
+os.environ['PATH'] += os.pathsep + r'C:\Users\ARNAV SAWANT\Desktop\Placement Prep\popple for ocr\poppler-24.08.0\Library\bin'
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 

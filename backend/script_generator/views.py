@@ -615,7 +615,7 @@ class ScriptViewSet(viewsets.ModelViewSet):
 def generate_script(request):
     try:
         print("🔹 Received request for script generation")
-        print("🔹 Request data:", request.data)
+        print("🔹 Request data:", request.data) 
 
         prompt = request.data.get('prompt', '')
         title = request.data.get('title', '')
@@ -646,6 +646,8 @@ def generate_script(request):
                     for img in images:
                         text = pytesseract.image_to_string(img)
                         pdf_text += text + "\n"
+
+                    print("<--------------Extracted pdf text is this ----------->", pdf_text)
                     
                     file_obj.text_content = pdf_text  # Save the extracted text
                     extracted_text += f"\nContent from {file.name} (OCR): {pdf_text}"
